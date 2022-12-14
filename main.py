@@ -3,9 +3,13 @@ import time
 import random
 
 # ------------------------------- TIMER MERCHANISM ----------------------------# 
-def countdown(count):
+count = 60
+def countdown():
+    global count
     if count > 0:
-        window.after(1000, countdown, count -1)
+        window.after(1000, countdown)
+        count  -= 1
+        timer.config(text=count)
 
 
 possibleText = [
@@ -38,7 +42,7 @@ window.geometry('1000x1000')
 
 
 # start Button
-count_down_button = tk.Button(master=window, text="Start", padx=30, pady=30)
+count_down_button = tk.Button(master=window, text="Start", padx=30, pady=30, command=countdown)
 count_down_button.grid(row=0, column=0)
 
 # restart Button
@@ -64,5 +68,8 @@ totype.grid(row=1, column=0, columnspan=3)
 
 input = tk.Text(window, width=60, height=10, padx=20, pady=20)
 input.grid(row=2, column=0, columnspan=3)
+
+timer = tk.Label(text="00:60")
+timer.grid(row=3, column=0)
 
 window.mainloop()
