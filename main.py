@@ -4,7 +4,7 @@ import random
 
 
 # ------------------------------- VARIABLES ---------------------------------- # 
-count = 60
+count = 10
 errors = 0
 wpm = 0
 
@@ -21,27 +21,22 @@ def countdown():
 
 # ------------------------------ FUNCTIONS -------------------------------- # 
 
-def checkerrors():
-    global text
-    global error
-    global wpm
+# def checkerrors():
+#     global text
+#     global errors
+#     global wpm
 
-    og_text = []
-    submitted_text = []
+#     og_text = []
+#     submitted_text = []
 
-    submission = input.get()
+#     submission = input.get("1.0", 'end')
     
-    for letter in text:
-        og_text.append(letter)
+#     for letter in text:
+#         og_text.append(letter)
 
-    for letter in submission:
-        submitted_text.append(letter)
+#     for letter in submission:
+#         submitted_text.append(letter)
 
-    for letter in submitted_text:
-        if submitted_text(letter) == og_text(letter):
-            pass
-        else:
-            error += 1
     
     wpm = len(submission.split())
     score.config(text=f"Your score is {wpm} words per minute")
@@ -74,7 +69,7 @@ count_down_button.grid(row=0, column=0)
 totype = tk.Label(window, width=60, height=10, text=text, wraplength=900)
 totype.grid(row=1, column=0, columnspan=3)
 
-input = tk.Text(window, width=60, height=10, padx=20, pady=20)
+input = tk.Text(window, width=60, height=10, padx=20, pady=20, )
 input.grid(row=2, column=0, columnspan=3)
 
 timer = tk.Label(text="00:60")
